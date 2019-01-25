@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-	return HttpResponse("Hello world, Welcome to our index.")
+	template = loader.get_template('frontend/index.html')
+	return HttpResponse(template.render({}, request))
 
-# Create your views here.
+
