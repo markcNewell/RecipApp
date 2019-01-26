@@ -284,6 +284,7 @@ Intro
 }
 
 .recipesSection {
+  margin-top: 50px;
   display: none;
 }
 
@@ -293,27 +294,36 @@ Intro
   margin-top: 50px;
 
   width: 60%;
+  border-collapse: collapse;
 }
 
 .resultsTable td{ 
   padding:7px; border:black 1px solid;
+  border: none;
 }
 /* provide some minimal visual accomodation for IE8 and below */
 .resultsTable tr{
   background: white;
+  border: 1px solid transparent;
+  cursor: pointer;
 }
+
+.resultsTable tr:hover {
+  border: 1px solid black;
+}
+
 /*  Define the background color for all the ODD background rows  */
 .resultsTable tr:nth-child(odd){ 
-  background: lightgrey;
+  background: rgb(162,162,162);
 }
 /*  Define the background color for all the EVEN background rows  */
 .resultsTable tr:nth-child(even){
-  background: white;
+  background: lightgrey;
 }
 
 .thumbnail {
-  width: 100px;
   height: 100px;
+  margin-bottom: 0px;
 }
 
 .ingredientsInput {
@@ -323,24 +333,40 @@ Intro
 
   width: 400px;
 
-  border-radius: 5px;
+  border: none;
+}
+
+.ingredientsInput:focus{
+	outline:none;
+	border:none;
 }
 
 .logo {
-  width: 150px;
-  height: 150px;
+  width: 350px;
+  height: 350px;
   margin-bottom: 25px;
 }
 
 .searchBtn {
+	color: grey;
   margin-top: 7px;
-  height: 45px;
+  height: 42px;
 
-  background: rgb(162,162,162);
+  background: white;
+	font-weight: bold;
 
-  border: 1px solid rgb(162,162,162);
+  border: 1px solid white;
 }
 
 .searchBtn:hover {
   border: 1px solid white;
+}
+
+.searchBtn:focus{
+	outline:none;
+	border:none;
+}
+
+.imgColumn {
+  width: 100px;
 }

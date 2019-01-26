@@ -1,6 +1,4 @@
 
-
-
 document.onload = function() {
 	document.getElementsByClassName('contactForm')[0].submit(function () {
 		 elementAdd();
@@ -9,8 +7,8 @@ document.onload = function() {
 }
 
 function searchBtn(){
-	//mockAPIRequest();
-	makeAPIRequest(["aubergine", "soya chunks", "carrots"]);
+	mockAPIRequest();
+	//makeAPIRequest(["aubergine", "soya chunks", "carrots"]);
 }
 
 function makeAPIRequest(ingredientsList) {
@@ -35,12 +33,12 @@ function makeAPIRequest(ingredientsList) {
 }
 
 
-function makeRecipeRequest(id) {
-	var location = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + id + "/information";
+function makeRecipeRequest(obj, id) {
+	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + id + "/information";
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			return JSON.parse(this.responseText);
+			createRow(obj,JSON.parse(this.responseText));
 		}
 	};
 	xhttp.open("GET", location, true);
@@ -59,8 +57,8 @@ function mockAPIRequest() {
 		]
 	};
 
-	var object2 = {
-		0: {
+	var object2 = [
+		{
 			"id":407000,
 			"title":"Vegetarian Burgers",
 			"image":"https://spoonacular.com/recipeImages/407000-312x231.jpg",
@@ -68,11 +66,20 @@ function mockAPIRequest() {
 			"usedIngredientCount":3,
 			"missedIngredientCount":3,
 			"likes":0
+		},
+		{
+			"id":479101,
+			"title":"Vegetarian Burgers",
+			"image":"https://spoonacular.com/recipeImages/407000-312x231.jpg",
+			"imageType":"jpg",
+			"usedIngredientCount":3,
+			"missedIngredientCount":3,
+			"likes":0
 		}
-	}
+	]
 
 
-	displayResults(object);
+	displayResults(object2);
 }
 
 
@@ -98,9 +105,13 @@ function displayResults(obj) {
 
 function createResult(obj) {
 
-	var list = document.getElementsByClassName("resultsTable")[0];
+	//makeRecipeRequest(obj, obj["id"]); Should be used for real implementation
+	createRow(obj, null);
 
-	// var details = makeRecipeRequest(obj["id"]);
+}
+
+function createRow(obj, details) {
+	var list = document.getElementsByClassName("resultsTable")[0];
 
 	var row = document.createElement("tr");
 	var column1 = document.createElement("td");
@@ -110,9 +121,12 @@ function createResult(obj) {
 	var thumbnail = document.createElement("img");
 
 	thumbnail.src = obj["image"];
-	// alert(JSON.stringify(details));
 
+	alert(details);
 
+	//row.onclick = function() {}; for when we have a page to view for each item
+
+	column1.classList.add("imgColumn");
 	thumbnail.classList.add("thumbnail");
 	column2.innerHTML = obj["title"];
 
