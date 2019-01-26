@@ -1,0 +1,257 @@
+/*
+  Theme Name: Alstar
+  Theme URL: https://bootstrapmade.com/alstar-free-parallax-bootstrap-template/
+  Author: BootstrapMade.com
+  Author URL: https://bootstrapmade.com
+*/
+
+/* ================================
+Imports
+================================= */
+@import url('font-awesome.min.css');
+@import url('simpletextrotator.css');
+@import url('overwrite.css');
+@import url('animate.css');
+
+/* ================================
+General
+================================= */
+
+body{
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	line-height: 1.6em;
+}
+
+h1 {
+	font-size: 36px;
+}
+h2 {
+	font-size: 32px;
+}
+h3 {
+	font-size: 28px;
+}
+h4 {
+	font-size: 24px;
+}
+h5 {
+	font-size: 20px;
+}
+h6 {
+	font-size: 18px;
+}
+
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
+	color: #3a3a3a;
+	font-weight: 700;
+	margin-bottom: 20px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+
+.lead{
+	font-weight: 400;
+}
+
+button {
+	display: inline-block;
+	margin-bottom: 0;
+	margin-bottom: 10px;
+	padding: 6px 12px;
+	border: 1px solid transparent;
+	vertical-align: middle;
+	text-align: center;
+	white-space: nowrap;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 1.428571429;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.btn-theme,.btn-theme:hover,.btn-theme:focus{
+	color: #fff;
+}
+.btn-theme:hover{
+	background: transparent !important;
+	border-color: #999;
+	color: #999;
+}
+
+
+/* ================================
+margin, padding
+================================= */
+.mar-top0 {
+	margin-top: 0;
+}
+.mar-top10 {
+	margin-top: 10px;
+}
+.mar-top20 {
+	margin-top: 20px;
+}
+.mar-top30 {
+	margin-top: 30px;
+}
+.mar-top40 {
+	margin-top: 40px;
+}
+
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  display: none;
+  padding: 6px 12px 9px 12px;
+  font-size: 16px;
+  border-radius: 2px;
+  right: 15px;
+  bottom: 15px;
+  transition: background 0.5s;
+  z-index:1000;
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 15px;
+  }
+}
+
+.back-to-top:focus {
+  outline: none;
+}
+
+/* ================================
+Home sections
+================================= */
+
+.home-section {
+	width: 100%;
+	padding: 150px 0px 150px 0px;
+}
+
+/* --- heading --- */
+.section-heading {
+	margin-bottom: 50px;
+}
+
+.section-heading h2 {
+	font-size: 38px;
+	text-transform: uppercase;
+}
+
+.section-heading .heading-line {
+	margin:0 auto;
+	display: block;
+	height: 1px;
+	width: 80px;
+	background: #333;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+/* ================================
+Intro
+================================= */
+
+#intro {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#intro .item {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#intro .item::before {
+  content: '';
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+#intro .carousel-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#intro .carousel-content {
+  text-align: center;
+}
+
+#intro h2 {
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+#intro p {
+  width: 70%;
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+  margin: 0 auto 30px auto;
+  color: #fff;
+}
+
+@media (max-width: 768px ) {
+  #intro h2 {
+    font-size: 36px;
+  }
+}
+
+
+#intro .btn-get-started {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 3px;
+  transition: 0.5s;
+  line-height: 1;
+  margin: 10px;
+  color: #fff;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  border: 2px solid #;
+}
+
+#intro .btn-get-started:hover {
+  background: #28933E;
+  color: #fff;
+  text-decoration: none;
+}

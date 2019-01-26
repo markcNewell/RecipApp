@@ -1,0 +1,24 @@
+a, a:hover {
+  color: #000000;
+}
+
+
+/* Back to top button */
+.back-to-top {
+  color: #000000;
+}
+
+
+.back-to-top:focus {
+  color: #000000;
+}
+
+.back-to-top:hover {
+  color: #000000;
+}
+
+.form-control:focus {
+  border-color: #000000;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 2px #000000;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 2px #000000;
+}

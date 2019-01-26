@@ -11,7 +11,6 @@ document.onload = function() {
 }
 
 function searchBtn(){
-	alert();
 	//mockAPIRequest();
 	makeAPIRequest(["aubergine", "soya chunks", "carrots"]);
 }
@@ -24,17 +23,20 @@ function makeAPIRequest(ingredientsList) {
 		var ingredient = ingredientsList[i].replace(' ', '+');
 		location += "%2C+" + ingredient;
 	}
-	
+
+	alert(location);
+	/*
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
+			alert();
 			displayResults(JSON.parse(this.responseText));
 		}
 	};
 	xhttp.open("GET", location, true);
 	xhttp.setRequestHeader("X-RapidAPI-Key", "afffc09374mshd6fd056ddf7a02cp1404a7jsnbda4416806e8");
 	xhttp.send();
-	
+	*/
 }
 
 /*Made a mock object to avoid using the true API calls*/
@@ -66,6 +68,11 @@ function mockAPIRequest() {
 
 
 function displayResults(obj) {
+
+	alert(JSON.stringify(obj));
+
+	alert(JSON.stringify(obj[0]));
+
 
 	var list = document.getElementsByClassName("resultsTable")[0];
 

@@ -3,7 +3,24 @@
 <html>
 	<head>
 
-		<script src="{% static 'functions.js' %}" type="text/javascript"></script>
+		<title>Alstar - Bootstrap one page parallax template</title>
+	  <meta charset="utf-8" />
+	  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	  <!-- css -->
+	  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,300,700,800" rel="stylesheet" media="screen">
+
+	  <link href="{% static "frontend/css/bootstrap.min.css" %}" rel="stylesheet" media="screen">
+	  <link href="{% static "frontend/css/style.css" %}" rel="stylesheet" media="screen">
+	  <link href="{% static "frontend/css/color/default.css" %}" rel="stylesheet" media="screen">
+
+	  <!-- =======================================================
+	    Theme Name: Alstar
+	    Theme URL: https://bootstrapmade.com/alstar-free-parallax-bootstrap-template/
+	    Author: BootstrapMade.com
+	    Author URL: https://bootstrapmade.com
+	  ======================================================= -->
+
+		<script src="{% static "frontend/js/functions.js" %}" type="text/javascript"></script>
 	</head>
 	<body>
 		<ul class="resultsTable">
@@ -19,5 +36,238 @@
 			<input type="text" name="search" id="searchText">
 			<input type="submit" name="searchBtn">
 		</form>
+
+
+
+
+		  <!-- intro area -->
+		  <section id="intro">
+		    <div class="intro-container">
+
+		        <div class="carousel-inner" role="listbox">
+
+		          <div class="item active">
+		            <div class="carousel-background"><img src=" {% static "frontend/resources/1.jpg" %} " alt="" style="width:100%; height: 100%;"></div>
+		            <div class="carousel-container">
+		              <div class="carousel-content">
+		                <h2 class="animated fadeInDown">Recipapp</h2>
+		                <p class="animated fadeInUp">recipapp recipapp ... recipapp? recipapp. rasipahp. racipaap. raceypapi.</p>
+		                <a href="#myTable" class="btn-get-started animated fadeInUp">Tell us what you have</a>
+		              </div>
+		            </div>
+		          </div>
+
+		        </div>
+		        </a>
+
+		      </div>
+		    </div>
+		  </section>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		  </section>
+
+		  <!-- Works -->
+
+		<!-- Ingredient Search -->
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+		* {
+		box-sizing: border-box;
+		}
+
+		#myInput {
+		width: 60%;
+		font-size: 16px;
+		padding: 12px 20px 12px 40px;
+		border: 1px solid #ddd;
+		margin-bottom: 12px;
+		}
+
+		#myTable {
+		border-collapse: collapse;
+		width: 60%;
+		border: 1px solid #ddd;
+		font-size: 18px;
+		display: inline-block;
+		}
+
+		#myTable th, #myTable td {
+		text-align: middle;
+		padding: 12px;
+		}
+
+		#myTable tr {
+		border-bottom: 1px solid #ddd;
+		}
+
+		#myTable tr.header, #myTable tr:hover {
+		background-color: #f1f1f1;
+		}
+		</style>
+
+		<h2>Your ingredients</h2>
+
+		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for ingredients.." title="Type in a name">
+
+		<table id="myTable">
+		<tr class="header">
+		<th style="width:1%;">Ingredient</th>
+		</tr>
+		<tr>
+		<td>Carrots</td>
+		</tr>
+		<tr>
+		<td>Cucumbers</td>
+		</tr>
+		<tr>
+		<td>Onions</td>
+		</tr>
+		<tr>
+		<td>Cheddar cheese</td>
+		</tr>
+		<tr>
+		<td>Flour</td>
+		</tr>
+		<tr>
+		<td>Potatoes</td>
+		</tr>
+		<tr>
+		<td>Peppers</td>
+		</tr>
+		<tr>
+		<td>Tomatoes</td>
+		</tr>
+		</table>
+
+		<script>
+		function myFunction() {
+		var input, filter, table, tr, td, i, txtValue;
+		input = document.getElementById("myInput");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("myTable");
+		tr = table.getElementsByTagName("tr");
+		for (i = 0; i < tr.length; i++) {
+		td = tr[i].getElementsByTagName("td")[0];
+		if (td) {
+		txtValue = td.textContent || td.innerText;
+		if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		tr[i].style.display = "";
+		} else {
+		tr[i].style.display = "none";
+		}
+		}
+		}
+		}
+		</script>
+
+
+		        </div>
+		      </div>
+		    </div>
+		  </section>
+
+
+
+		<!-- =============================-->
+		<!-- Recipies-->
+		<!-- =============================-->
+		<head>
+		<style>
+		table {
+		  font-family: arial, sans-serif;
+		  border-collapse: collapse;
+		  width: 100%;
+		}
+
+		td, th {
+		  border: 1px solid #dddddd;
+		  text-align: left;
+		  padding: 8px;
+		}
+
+		tr:nth-child(even) {
+		  background-color: #dddddd;
+		}
+		</style>
+		</head>
+
+		<h2>Recipies</h2>
+
+		<table>
+		  <tr>
+		    <th>Company</th>
+		    <th>Contact</th>
+		    <th>Country</th>
+		  </tr>
+		  <tr>
+		    <td>Alfreds Futterkiste</td>
+		    <td>Maria Anders</td>
+		    <td>Germany</td>
+		  </tr>
+		  <tr>
+		    <td>Centro comercial Moctezuma</td>
+		    <td>Francisco Chang</td>
+		    <td>Mexico</td>
+		  </tr>
+		  <tr>
+		    <td>Ernst Handel</td>
+		    <td>Roland Mendel</td>
+		    <td>Austria</td>
+		  </tr>
+		  <tr>
+		    <td>Island Trading</td>
+		    <td>Helen Bennett</td>
+		    <td>UK</td>
+		  </tr>
+		  <tr>
+		    <td>Laughing Bacchus Winecellars</td>
+		    <td>Yoshi Tannamuri</td>
+		    <td>Canada</td>
+		  </tr>
+		  <tr>
+		    <td>Magazzini Alimentari Riuniti</td>
+		    <td>Giovanni Rovelli</td>
+		    <td>Italy</td>
+		  </tr>
+		</table>
+
+
+		<!-- Footer -->
+		  <footer>
+		    <div class="container">
+		      <div class="row">
+		        <div class="col-md-12">
+		          <p>Copyright &copy; Alstar. All rights reserved.</p>
+		          <div class="credits">
+		            <!--
+		              All the links in the footer should remain intact.
+		              You can delete the links only if you purchased the pro version.
+		              Licensing information: https://bootstrapmade.com/license/
+		              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Alstar
+		            -->
+		            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		  </footer>
+
+		  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+		  <!-- js -->
+		  <script src="{% static "frontend/js/jquery.js" %}"></script>
+		  <script src="{% static "frontend/js/bootstrap.min.js" %}"></script>
+		  <script src="{% static "frontend/js/wow.min.js" %}"></script>
+		  <script src="{% static "frontend/js/jquery.scrollTo.min.js" %}"></script>
+		  <script src="{% static "frontend/js/jquery.nav.js" %}"></script>
+		  <script src="{% static "frontend/js/modernizr.custom.js" %}"></script>
+		  <script src="{% static "frontend/js/grid.js" %}"></script>
+		  <script src="{% static "frontend/js/stellar.js" %}"></script>
+
+
 	</body>
 </html>
