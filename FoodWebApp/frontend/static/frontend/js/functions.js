@@ -31,7 +31,7 @@ function makeAPIRequest(ingredientsList) {
 	xhttp.open("GET", location, true);
 	xhttp.setRequestHeader("X-RapidAPI-Key", "afffc09374mshd6fd056ddf7a02cp1404a7jsnbda4416806e8");
 	xhttp.send();
-	
+
 }
 
 
@@ -46,7 +46,7 @@ function makeRecipeRequest(id) {
 	xhttp.open("GET", location, true);
 	xhttp.setRequestHeader("X-RapidAPI-Key", "afffc09374mshd6fd056ddf7a02cp1404a7jsnbda4416806e8");
 	xhttp.send();
-	
+
 }
 
 /*Made a mock object to avoid using the true API calls*/
@@ -88,7 +88,7 @@ function displayResults(obj) {
 
 		/*Create an entry into the table for each recipie*/
 		createResult(obj[i]);
-		
+
 	}
 
 	displayRecipes();
@@ -100,7 +100,7 @@ function createResult(obj) {
 
 	var list = document.getElementsByClassName("resultsTable")[0];
 
-	var details = makeRecipeRequest(obj["id"]);
+	// var details = makeRecipeRequest(obj["id"]);
 
 	var row = document.createElement("tr");
 	var column1 = document.createElement("td");
@@ -110,7 +110,7 @@ function createResult(obj) {
 	var thumbnail = document.createElement("img");
 
 	thumbnail.src = obj["image"];
-	alert(JSON.stringify(details));
+	// alert(JSON.stringify(details));
 
 
 	thumbnail.classList.add("thumbnail");

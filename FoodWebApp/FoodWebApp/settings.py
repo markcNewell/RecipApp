@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'ktag',
+    'example',
     'frontend.apps.FrontendConfig',
     'django.contrib.admin',
     'django.contrib.auth',

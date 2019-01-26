@@ -1,6 +1,13 @@
 
 {% load staticfiles %}
 
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <br>
+    <input type="submit" value="OK" style="font-size: larger">
+</form>
+
 
 <html>
 	<head>
@@ -45,13 +52,8 @@
 		            <div class="carousel-container">
 		              <div class="carousel-content">
 		                <img src=" {% static "frontend/resources/logo.png" %} " class="animated fadeInDown logo"><br>
-										<form action="" method="post">
-												{% csrf_token %}
-												{{ form }}
-												<br>
-												<input type="submit" value="OK" style="font-size: larger">
-										</form>
-										<button class="searchBtn" onclick="searchBtn()">Search</button>
+		                <input name='tags3-1' placeholder="Search for ingredients..." class="ingredientsInput">
+		                <button class="searchBtn" onclick="searchBtn()">Search</button>
 		              </div>
 		            </div>
 		          </div>
