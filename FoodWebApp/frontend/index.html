@@ -3,7 +3,7 @@
 <html>
 	<head>
 
-		<title>Alstar - Bootstrap one page parallax template</title>
+		<title>Recipapp</title>
 	  <meta charset="utf-8" />
 	  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	  <!-- css -->
@@ -21,25 +21,10 @@
 	  ======================================================= -->
 
 		<script src="{% static "frontend/js/functions.js" %}" type="text/javascript"></script>
+		<script src="{% static "frontend/js/Tag.js" %}" type="text/javascript"></script>
+		<script src="{% static "frontend/js/tagify.js" %}" type="text/javascript"></script>
 	</head>
 	<body>
-		<ul class="resultsTable">
-			<li>HELLO</li>
-			<li>Item1</li>
-			<li>Item2</li>
-			<li>Item3</li>
-			<li>Item4</li>
-		</ul>
-		<button class="btn" onclick="searchBtn()">SEARCH ME</button>
-
-		<form class="contactForm">
-			<input type="text" name="search" id="searchText">
-			<input type="submit" name="searchBtn">
-		</form>
-
-
-
-
 		  <!-- intro area -->
 		  <section id="intro">
 		    <div class="intro-container">
@@ -51,8 +36,9 @@
 		            <div class="carousel-container">
 		              <div class="carousel-content">
 		                <h2 class="animated fadeInDown">Recipapp</h2>
-		                <p class="animated fadeInUp">recipapp recipapp ... recipapp? recipapp. rasipahp. racipaap. raceypapi.</p>
-		                <a href="#myTable" class="btn-get-started animated fadeInUp">Tell us what you have</a>
+
+		                <input name='tags3-1' placeholder="Search for ingredients...">
+
 		              </div>
 		            </div>
 		          </div>
@@ -63,113 +49,6 @@
 		      </div>
 		    </div>
 		  </section>
-		          </div>
-		        </div>
-		      </div>
-		    </div>
-		  </section>
-
-		  <!-- Works -->
-
-		<!-- Ingredient Search -->
-
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<style>
-		* {
-		box-sizing: border-box;
-		}
-
-		#myInput {
-		width: 60%;
-		font-size: 16px;
-		padding: 12px 20px 12px 40px;
-		border: 1px solid #ddd;
-		margin-bottom: 12px;
-		}
-
-		#myTable {
-		border-collapse: collapse;
-		width: 60%;
-		border: 1px solid #ddd;
-		font-size: 18px;
-		display: inline-block;
-		}
-
-		#myTable th, #myTable td {
-		text-align: middle;
-		padding: 12px;
-		}
-
-		#myTable tr {
-		border-bottom: 1px solid #ddd;
-		}
-
-		#myTable tr.header, #myTable tr:hover {
-		background-color: #f1f1f1;
-		}
-		</style>
-
-		<h2>Your ingredients</h2>
-
-		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for ingredients.." title="Type in a name">
-
-		<table id="myTable">
-		<tr class="header">
-		<th style="width:1%;">Ingredient</th>
-		</tr>
-		<tr>
-		<td>Carrots</td>
-		</tr>
-		<tr>
-		<td>Cucumbers</td>
-		</tr>
-		<tr>
-		<td>Onions</td>
-		</tr>
-		<tr>
-		<td>Cheddar cheese</td>
-		</tr>
-		<tr>
-		<td>Flour</td>
-		</tr>
-		<tr>
-		<td>Potatoes</td>
-		</tr>
-		<tr>
-		<td>Peppers</td>
-		</tr>
-		<tr>
-		<td>Tomatoes</td>
-		</tr>
-		</table>
-
-		<script>
-		function myFunction() {
-		var input, filter, table, tr, td, i, txtValue;
-		input = document.getElementById("myInput");
-		filter = input.value.toUpperCase();
-		table = document.getElementById("myTable");
-		tr = table.getElementsByTagName("tr");
-		for (i = 0; i < tr.length; i++) {
-		td = tr[i].getElementsByTagName("td")[0];
-		if (td) {
-		txtValue = td.textContent || td.innerText;
-		if (txtValue.toUpperCase().indexOf(filter) > -1) {
-		tr[i].style.display = "";
-		} else {
-		tr[i].style.display = "none";
-		}
-		}
-		}
-		}
-		</script>
-
-
-		        </div>
-		      </div>
-		    </div>
-		  </section>
-
 
 
 		<!-- =============================-->
@@ -235,26 +114,6 @@
 		  </tr>
 		</table>
 
-
-		<!-- Footer -->
-		  <footer>
-		    <div class="container">
-		      <div class="row">
-		        <div class="col-md-12">
-		          <p>Copyright &copy; Alstar. All rights reserved.</p>
-		          <div class="credits">
-		            <!--
-		              All the links in the footer should remain intact.
-		              You can delete the links only if you purchased the pro version.
-		              Licensing information: https://bootstrapmade.com/license/
-		              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Alstar
-		            -->
-		            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-		          </div>
-		        </div>
-		      </div>
-		    </div>
-		  </footer>
 
 		  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 

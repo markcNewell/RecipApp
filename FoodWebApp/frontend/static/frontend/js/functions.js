@@ -1,9 +1,5 @@
 
 document.onload = function() {
-	var btn = document.getElementsByClassName("btn")[0];
-	btn.addEventListener("click",searchBtn);
-
-
 	document.getElementsByClassName('contactForm')[0].submit(function () {
 		 elementAdd();
 		 return false;
@@ -24,8 +20,6 @@ function makeAPIRequest(ingredientsList) {
 		location += "%2C+" + ingredient;
 	}
 
-	alert(location);
-	/*
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -36,7 +30,7 @@ function makeAPIRequest(ingredientsList) {
 	xhttp.open("GET", location, true);
 	xhttp.setRequestHeader("X-RapidAPI-Key", "afffc09374mshd6fd056ddf7a02cp1404a7jsnbda4416806e8");
 	xhttp.send();
-	*/
+	
 }
 
 /*Made a mock object to avoid using the true API calls*/
