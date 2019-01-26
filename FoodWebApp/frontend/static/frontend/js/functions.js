@@ -1,4 +1,6 @@
 
+
+
 document.onload = function() {
 	document.getElementsByClassName('contactForm')[0].submit(function () {
 		 elementAdd();
@@ -12,7 +14,7 @@ function searchBtn(){
 }
 
 function makeAPIRequest(ingredientsList) {
-	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=2&ranking=1&ingredients="
+	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=2&ranking=1&ingredients=";
 
 	location += ingredientsList[0]; //add the first element
 	for (var i = 1; i < ingredientsList.length; i++) {
@@ -23,8 +25,22 @@ function makeAPIRequest(ingredientsList) {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			alert();
 			displayResults(JSON.parse(this.responseText));
+		}
+	};
+	xhttp.open("GET", location, true);
+	xhttp.setRequestHeader("X-RapidAPI-Key", "afffc09374mshd6fd056ddf7a02cp1404a7jsnbda4416806e8");
+	xhttp.send();
+	
+}
+
+
+function makeRecipeRequest(id) {
+	var location = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + id + "/information";
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			return JSON.parse(this.responseText);
 		}
 	};
 	xhttp.open("GET", location, true);
@@ -63,11 +79,6 @@ function mockAPIRequest() {
 
 function displayResults(obj) {
 
-	alert(JSON.stringify(obj));
-
-	alert(JSON.stringify(obj[0]));
-
-
 	var list = document.getElementsByClassName("resultsTable")[0];
 
 	/*Inefficient but fine for now*/
@@ -75,16 +86,12 @@ function displayResults(obj) {
 
 	for (var i = 0; i < obj.length; i++) {
 
-		var element = document.createElement("li");
-
-		element.innerHTML = obj[i]["title"];
-
-		list.appendChild(element);
-
 		/*Create an entry into the table for each recipie*/
-		//createResult(obj["recipies"][i]);
+		createResult(obj[i]);
 		
 	}
+
+	displayRecipes();
 
 }
 
@@ -93,12 +100,27 @@ function createResult(obj) {
 
 	var list = document.getElementsByClassName("resultsTable")[0];
 
-	var element = document.createElement("li");
+	var details = makeRecipeRequest(obj["id"]);
 
-	//element.classList.add(""); Will be used when needing to add classes to style the element
-	element.innerHTML = obj["name"];
+	var row = document.createElement("tr");
+	var column1 = document.createElement("td");
+	var column2 = document.createElement("td");
+	var column3 = document.createElement("td");
 
-	list.appendChild(element);
+	var thumbnail = document.createElement("img");
+
+	thumbnail.src = obj["image"];
+	alert(JSON.stringify(details));
+
+
+	thumbnail.classList.add("thumbnail");
+	column2.innerHTML = obj["title"];
+
+	column1.appendChild(thumbnail);
+
+	row.appendChild(column1);
+	row.appendChild(column2);
+	list.appendChild(row);
 }
 
 
@@ -106,4 +128,10 @@ function elementAdd() {
 	var textBox = document.getElementById("searchText");
 
 	alert(textBox.value);
+}
+
+
+function displayRecipes() {
+	var section = document.getElementsByClassName("recipesSection")[0];
+	section.style.display = "block";
 }

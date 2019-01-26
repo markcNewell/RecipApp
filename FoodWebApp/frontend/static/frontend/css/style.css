@@ -282,3 +282,65 @@ Intro
     margin-right: 3px;
     border-radius: 2px;
 }
+
+.recipesSection {
+  display: none;
+}
+
+.resultsTable {
+  margin-left: 20%;
+  margin-bottom: 100px;
+  margin-top: 50px;
+
+  width: 60%;
+}
+
+.resultsTable td{ 
+  padding:7px; border:black 1px solid;
+}
+/* provide some minimal visual accomodation for IE8 and below */
+.resultsTable tr{
+  background: white;
+}
+/*  Define the background color for all the ODD background rows  */
+.resultsTable tr:nth-child(odd){ 
+  background: lightgrey;
+}
+/*  Define the background color for all the EVEN background rows  */
+.resultsTable tr:nth-child(even){
+  background: white;
+}
+
+.thumbnail {
+  width: 100px;
+  height: 100px;
+}
+
+.ingredientsInput {
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  width: 400px;
+
+  border-radius: 5px;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 25px;
+}
+
+.searchBtn {
+  margin-top: 7px;
+  height: 45px;
+
+  background: rgb(162,162,162);
+
+  border: 1px solid rgb(162,162,162);
+}
+
+.searchBtn:hover {
+  border: 1px solid white;
+}
