@@ -8,7 +8,7 @@ window.onload = function() {
 
 	var url_string = window.location.href; //window.location.href
 	var url = new URL(url_string);
-	var ingredients = url.searchParams.get("fruits");
+	var ingredients = url.searchParams.get("ingredients");
 
 	ingredientsList = ingredients.split(" ");
 
@@ -24,7 +24,7 @@ function searchBtn(){
 }
 
 function makeAPIRequest(ingredientsList) {
-	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ingredients=";
+	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=1&ranking=1&ingredients=";
 
 	location += ingredientsList[0]; //add the first element
 	for (var i = 1; i < ingredientsList.length; i++) {
@@ -117,8 +117,9 @@ function displayResults(obj) {
 
 function createResult(obj) {
 
-	//makeRecipeRequest(obj, obj["id"]); Should be used for real implementation
-	createRow(obj, null);
+	makeRecipeRequest(obj, obj["id"]); 
+	//Should be used for real implementation
+	//createRow(obj, null);
 
 }
 
@@ -134,9 +135,11 @@ function createRow(obj, details) {
 
 	thumbnail.src = obj["image"];
 
-	alert(details);
+	var sourceURL = details["sourceUrl"];
 
-	//row.onclick = function() {}; for when we have a page to view for each item
+	row.onclick = function() {
+		location = sourceURL;
+	};
 
 	column1.classList.add("imgColumn");
 	thumbnail.classList.add("thumbnail");

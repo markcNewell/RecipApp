@@ -8,8 +8,8 @@ def index(request):
 	if request.method == 'POST':
 		form = TagForm(request.POST)
 		if form.is_valid():
-			print(form.cleaned_data['fruits'])
-			ingredients = form.cleaned_data['fruits']
+			print(form.cleaned_data['ingredients'])
+			ingredients = form.cleaned_data['ingredients']
 			return render(request, 'frontend/index.html', {'form': form, 'ingredients':ingredients})
 	else:
 		form = TagForm()

@@ -7,8 +7,10 @@ from ktag.fields import TagField
 
 
 class TagForm(forms.Form):
-    fruits = TagField(label='', place_holder='write your fruits', delimiters=' ',
-                      data_list=['apple', 'banana', 'watermelon', 'orange'], initial='grape coconut')
+    ingredients = TagField(label='', place_holder='write your ingredients', delimiters=' ',
+                      data_list=['courgette', 'tomato', 'cucumber', 'pepper', 'chicken',
+                      'beef', 'flour', 'broccoli', 'garlic', 'soy sauce', 'onion',
+                      'salt', 'egg', 'rice', 'milk'], initial='tomato')
 
 
 class PeopleAdminForm(forms.ModelForm):
@@ -16,7 +18,7 @@ class PeopleAdminForm(forms.ModelForm):
         model = People
         fields = '__all__'
 
-    fruits = TagField(label='fruits', place_holder='write your fruits', delimiters=',',
+    ingredients = TagField(label='ingredients', place_holder='write your ingredients', delimiters=',',
                       data_list=['courgette', 'tomato', 'cucumber', 'pepper', 'chicken',
                       'beef', 'flour', 'broccoli', 'garlic', 'soy sauce', 'onion',
                       'salt', 'egg', 'rice', 'milk'])
