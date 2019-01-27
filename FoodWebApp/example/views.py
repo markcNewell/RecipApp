@@ -9,7 +9,8 @@ def index(request):
         form = TagForm(request.POST)
         if form.is_valid():
             print(form.cleaned_data['fruits'])
-            return HttpResponse(str(form.cleaned_data['fruits']))
+            return render(request, 'index.html', {'form': form})
+            # return HttpResponse(str(form.cleaned_data['fruits']))
 
     else:
         form = TagForm()
@@ -21,7 +22,8 @@ def data_list_func_test(request):
         form = dataListFuncTestForm(request.POST)
         if form.is_valid():
             print(form.cleaned_data['number'])
-            return HttpResponse(str(form.cleaned_data['number']))
+            return render(request, 'index.html', {'form': form})
+            # return HttpResponse(str(form.cleaned_data['number']))
 
     else:
         form = dataListFuncTestForm()
