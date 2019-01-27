@@ -1,10 +1,6 @@
 
 window.onload = function() {
-	
-	// document.getElementsByClassName('contactForm')[0].submit(function () {
-	// 	 elementAdd();
-	// 	 return false;
-	// });
+
 
 	var url_string = window.location.href; //window.location.href
 	var url = new URL(url_string);
@@ -18,7 +14,6 @@ window.onload = function() {
 }
 
 function searchBtn(){
-	alert();
 	mockAPIRequest();
 	//makeAPIRequest(["aubergine", "soya chunks", "carrots"]);
 }
@@ -112,12 +107,13 @@ function displayResults(obj) {
 
 	displayRecipes();
 
+	autoScroll();
 }
 
 
 function createResult(obj) {
 
-	makeRecipeRequest(obj, obj["id"]); 
+	makeRecipeRequest(obj, obj["id"]);
 	//Should be used for real implementation
 	//createRow(obj, null);
 
@@ -163,4 +159,10 @@ function elementAdd() {
 function displayRecipes() {
 	var section = document.getElementsByClassName("recipesSection")[0];
 	section.style.display = "block";
+}
+
+function autoScroll() {
+	var windowHeight = window.innerHeight;
+	alert(windowHeight);
+	window.scrollTo(0,windowHeight);
 }
