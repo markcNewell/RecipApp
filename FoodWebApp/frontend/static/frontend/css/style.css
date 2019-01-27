@@ -297,7 +297,7 @@ Intro
   border-collapse: collapse;
 }
 
-.resultsTable td{ 
+.resultsTable td{
   padding:7px; border:black 1px solid;
   border: none;
 }
@@ -313,7 +313,7 @@ Intro
 }
 
 /*  Define the background color for all the ODD background rows  */
-.resultsTable tr:nth-child(odd){ 
+.resultsTable tr:nth-child(odd){
   background: rgb(162,162,162);
 }
 /*  Define the background color for all the EVEN background rows  */
@@ -345,6 +345,14 @@ Intro
   width: 350px;
   height: 350px;
   margin-bottom: 25px;
+}
+
+.profile {
+  width: 50px;
+  height:50px;
+	position: fixed;
+	left: 30px;
+	top: 30px;
 }
 
 .searchBtn {
