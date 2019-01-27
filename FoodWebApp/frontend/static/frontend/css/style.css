@@ -50,6 +50,11 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
 	font-family: 'Montserrat', sans-serif;
 }
 
+tags {
+  background: white;
+  display: inline-block !important;
+}
+
 
 .lead{
 	font-weight: 400;
@@ -345,12 +350,15 @@ Intro
   width: 350px;
   height: 350px;
   margin-bottom: 25px;
+  user-select: none;
 }
 
 .searchBtn {
+  position: relative;
+
 	color: grey;
-  margin-top: 7px;
-  height: 42px;
+  top: -16px;
+  height: 44px;
 
   background: white;
 	font-weight: bold;

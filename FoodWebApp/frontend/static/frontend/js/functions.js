@@ -1,9 +1,12 @@
 
-document.onload = function() {
-	document.getElementsByClassName('contactForm')[0].submit(function () {
-		 elementAdd();
-		 return false;
-	});
+window.onload = function() {
+	var recipes = document.getElementsByClassName("recipesSection")[0];
+
+	alert(recipes.style.display);
+
+	if (recipes.style.display == "none") {
+		alert("NONE");
+	}
 }
 
 function searchBtn(){
