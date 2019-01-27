@@ -17,7 +17,9 @@ class PeopleAdminForm(forms.ModelForm):
         fields = '__all__'
 
     fruits = TagField(label='fruits', place_holder='write your fruits', delimiters=',',
-                      data_list=['apple', 'banana', 'watermelon', 'orange'])
+                      data_list=['courgette', 'tomato', 'cucumber', 'pepper', 'chicken',
+                      'beef', 'flour', 'broccoli', 'garlic', 'soy sauce', 'onion',
+                      'salt', 'egg', 'rice', 'milk'])
 
 
 def random_number():

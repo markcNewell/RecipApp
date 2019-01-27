@@ -9,7 +9,8 @@ def index(request):
 		form = TagForm(request.POST)
 		if form.is_valid():
 			print(form.cleaned_data['fruits'])
-			return render(request, 'frontend/index.html', {'form': form})
+			ingredients = form.cleaned_data['fruits']
+			return render(request, 'frontend/index.html', {'form': form, 'ingredients':ingredients})
 	else:
 		form = TagForm()
 	return render(request, 'frontend/index.html', {'form': form})
@@ -22,4 +23,3 @@ def index(request):
 
 	
 
-	

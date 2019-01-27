@@ -1,18 +1,30 @@
 
-document.onload = function() {
-	document.getElementsByClassName('contactForm')[0].submit(function () {
-		 elementAdd();
-		 return false;
-	});
+window.onload = function() {
+	
+	// document.getElementsByClassName('contactForm')[0].submit(function () {
+	// 	 elementAdd();
+	// 	 return false;
+	// });
+
+	var url_string = window.location.href; //window.location.href
+	var url = new URL(url_string);
+	var ingredients = url.searchParams.get("fruits");
+
+	ingredientsList = ingredients.split(" ");
+
+	if (ingredientsList.length > 0) {
+		makeAPIRequest(ingredientsList);
+	}
 }
 
 function searchBtn(){
+	alert();
 	mockAPIRequest();
 	//makeAPIRequest(["aubergine", "soya chunks", "carrots"]);
 }
 
 function makeAPIRequest(ingredientsList) {
-	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=2&ranking=1&ingredients=";
+	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ingredients=";
 
 	location += ingredientsList[0]; //add the first element
 	for (var i = 1; i < ingredientsList.length; i++) {
