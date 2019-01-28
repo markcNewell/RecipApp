@@ -359,6 +359,7 @@ Intro
 	position: fixed;
 	left: 30px;
 	top: 30px;
+	cursor: pointer;
 }
 
 .searchBtn {

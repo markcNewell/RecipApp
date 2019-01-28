@@ -19,7 +19,7 @@ function searchBtn(){
 }
 
 function makeAPIRequest(ingredientsList) {
-	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=1&ranking=1&ingredients=";
+	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=10&ranking=1&ingredients=";
 
 	location += ingredientsList[0]; //add the first element
 	for (var i = 1; i < ingredientsList.length; i++) {
@@ -163,6 +163,5 @@ function displayRecipes() {
 
 function autoScroll() {
 	var windowHeight = window.innerHeight;
-	alert(windowHeight);
 	window.scrollTo(0,windowHeight);
 }
