@@ -1,4 +1,4 @@
 # RecipApp
 
-Install Django using pip install django.
-Install the tag adding Django add-on.
+Install Django using    pip install django<br>
+Install the tag adding Django add-on     pip install django-ktag.
