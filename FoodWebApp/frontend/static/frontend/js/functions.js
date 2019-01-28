@@ -1,6 +1,12 @@
 
+
+window.onresize = function() {
+	checkWindowSize();
+}
+
 window.onload = function() {
 
+	checkWindowSize();
 
 	var url_string = window.location.href; //window.location.href
 	var url = new URL(url_string);
@@ -13,9 +19,18 @@ window.onload = function() {
 	}
 }
 
-function searchBtn(){
-	mockAPIRequest();
-	//makeAPIRequest(["aubergine", "soya chunks", "carrots"]);
+function checkWindowSize() {
+	var desktopBackground = document.getElementsByClassName("background")[0];
+	var mobileBackground = document.getElementsByClassName("background")[1];
+
+	if (window.innerWidth < 700) {		
+		desktopBackground.style.display = "none";
+		mobileBackground.style.display = "block";
+	}
+	else {
+		mobileBackground.style.display = "none";
+		desktopBackground.style.display = "block";
+	}
 }
 
 function makeAPIRequest(ingredientsList) {
