@@ -26,7 +26,7 @@
 	  <script src="{% static "frontend/js/stellar.js" %}"></script>
 	</head>
 	<body>
-		<!--<script>function56();</script>-->
+
 		  <!-- intro area -->
 		  <section id="intro">
 		    <div class="intro-container">
@@ -43,14 +43,13 @@
 		              	<img src="{% static "frontend/resources/profile.png" %}" class="animated fadeInDown profile">
 		              	<br>
 		                <img src=" {% static "frontend/resources/logo.png" %} " class="animated fadeInDown logo"><br>
-						<form action="" method="get" class="animated fadeInDown">
-								<!-- {% csrf_token %} -->
+							<form action="" method="get">
 								{{ form }}
-								<input class="searchBtn" type="submit" value=">" style="font-size: larger">
-						</form>
-						<h1>
-							{{ingredients}}
-						</h1>
+								<input class="searchBtn btn btn-outline-secondary" type="submit" value="Search" style="font-size: larger">
+							</form>
+							<h1>
+								{{ingredients}}
+							</h1>
 		              </div>
 		            </div>
 		          </div>

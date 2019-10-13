@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from frontend.forms import TagForm
+from .forms import TagForm
+
 
 def index(request):
 
@@ -13,7 +14,7 @@ def index(request):
 			return render(request, 'frontend/index.html', {'form': form, 'ingredients':ingredients})
 	else:
 		form = TagForm()
-	return render(request, 'frontend/index.html', {'form': form})
+	return render(request, 'frontend/static/index.html', {'form': form})
 
 
 

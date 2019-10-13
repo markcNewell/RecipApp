@@ -10,16 +10,26 @@ window.onload = function() {
 	var url = new URL(url_string);
 	var ingredients = url.searchParams.get("ingredients");
 
-	ingredientsList = ingredients.split(" ");
-
-	if (ingredientsList.length > 0) {
+	if (ingredients != null) {
+		ingredientsList = ingredients.split(" ");
 		makeAPIRequest(ingredientsList);
 	}
 }
 
+
 function checkWindowSize() {
 	var desktopBackground = document.getElementsByClassName("background")[0];
 	var mobileBackground = document.getElementsByClassName("background")[1];
+
+
+function searchBtn(){
+	mockAPIRequest();
+	//makeAPIRequest(["aubergine", "soya chunks", "carrots"]);
+}
+
+function makeAPIRequest(ingredientsList) {
+	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=2&ranking=1&ingredients=";
+
 
 	if (window.innerWidth < 700) {		
 		desktopBackground.style.display = "none";
@@ -91,8 +101,6 @@ function createRow(obj, details) {
 
 function elementAdd() {
 	var textBox = document.getElementById("searchText");
-
-	alert(textBox.value);
 }
 
 
