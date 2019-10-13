@@ -6,40 +6,86 @@ window.onload = function() {
 
 	checkWindowSize();
 
-	var url_string = window.location.href; //window.location.href
-	var url = new URL(url_string);
-	var ingredients = url.searchParams.get("ingredients");
+	$("#searchbtn").click(() => {
+		var tags = $(document).find("tag");
+		var values = [];
 
-	if (ingredients != null) {
-		ingredientsList = ingredients.split(" ");
-		makeAPIRequest(ingredientsList);
-	}
+		tags.each(function(index, element) {
+			var el = $(element).find("span");
+			values.push($(el[0]).html());
+		});
+
+		makeAPIRequest(values);
+	});
 }
+
+
+
+
 
 
 function checkWindowSize() {
-	var desktopBackground = document.getElementsByClassName("background")[0];
-	var mobileBackground = document.getElementsByClassName("background")[1];
 
-
-function searchBtn(){
-	mockAPIRequest();
-	//makeAPIRequest(["aubergine", "soya chunks", "carrots"]);
-}
-
-function makeAPIRequest(ingredientsList) {
-	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=2&ranking=1&ingredients=";
-
-
-	if (window.innerWidth < 700) {		
-		desktopBackground.style.display = "none";
-		mobileBackground.style.display = "block";
+	if (window.innerWidth < 600) {
+		$($(".background")[0]).css("display", "none");
+		$($(".background")[1]).css("display", "block");
 	}
 	else {
-		mobileBackground.style.display = "none";
-		desktopBackground.style.display = "block";
+		$($(".background")[1]).css("display", "none");
+		$($(".background")[0]).css("display", "block");
 	}
+	
 }
+
+
+
+
+
+
+function makeAPIRequest(ingredientsList) {
+	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=1&ranking=1&ingredients=";
+
+	location += ingredientsList[0]; //add the first element
+	for (var i = 1; i < ingredientsList.length; i++) {
+		var ingredient = ingredientsList[i].replace(' ', '+');
+		location += "%2C+" + ingredient;
+	}
+
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			displayResults(JSON.parse(this.responseText));
+		}
+	};
+	xhttp.open("GET", location, true);
+	xhttp.setRequestHeader("X-RapidAPI-Key", "afffc09374mshd6fd056ddf7a02cp1404a7jsnbda4416806e8");
+	xhttp.send();
+}
+
+
+
+
+
+
+
+function makeRecipeRequest(obj, id) {
+	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + id + "/information";
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			createRow(obj,JSON.parse(this.responseText));
+		}
+	};
+	xhttp.open("GET", location, true);
+	xhttp.setRequestHeader("X-RapidAPI-Key", "afffc09374mshd6fd056ddf7a02cp1404a7jsnbda4416806e8");
+	xhttp.send();
+
+}
+
+
+
+
+
 
 function displayResults(obj) {
 

@@ -40,16 +40,9 @@
 		            </div>
 		            <div class="carousel-container">
 		              <div class="carousel-content">
-		              	<img src="{% static "frontend/resources/profile.png" %}" class="animated fadeInDown profile">
-		              	<br>
 		                <img src=" {% static "frontend/resources/logo.png" %} " class="animated fadeInDown logo"><br>
-							<form action="" method="get">
-								{{ form }}
-								<input class="searchBtn btn btn-outline-secondary" type="submit" value="Search" style="font-size: larger">
-							</form>
-							<h1>
-								{{ingredients}}
-							</h1>
+							{{ form }}
+							<button class="searchBtn btn btn-outline-secondary" style="font-size: larger" id="searchbtn">Search</button>
 		              </div>
 		            </div>
 		          </div>
