@@ -6,9 +6,8 @@ window.onload = function() {
 	var url = new URL(url_string);
 	var ingredients = url.searchParams.get("ingredients");
 
-	ingredientsList = ingredients.split(" ");
-
-	if (ingredientsList.length > 0) {
+	if (ingredients != null) {
+		ingredientsList = ingredients.split(" ");
 		makeAPIRequest(ingredientsList);
 	}
 }
@@ -19,7 +18,7 @@ function searchBtn(){
 }
 
 function makeAPIRequest(ingredientsList) {
-	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=1&ranking=1&ingredients=";
+	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=2&ranking=1&ingredients=";
 
 	location += ingredientsList[0]; //add the first element
 	for (var i = 1; i < ingredientsList.length; i++) {
@@ -151,8 +150,6 @@ function createRow(obj, details) {
 
 function elementAdd() {
 	var textBox = document.getElementById("searchText");
-
-	alert(textBox.value);
 }
 
 
