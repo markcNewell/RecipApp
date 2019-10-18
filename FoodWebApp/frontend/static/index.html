@@ -26,44 +26,55 @@
 	  <script src="{% static "frontend/js/stellar.js" %}"></script>
 	</head>
 	<body>
-
-		  <!-- intro area -->
-		  <section id="intro">
-		    <div class="intro-container">
-
-		        <div class="carousel-inner" role="listbox">
-
-		          <div class="item active">
-		            <div class="carousel-background">
-		            	<img class="background" src=" {% static "frontend/resources/1.jpg" %} " alt="" style="width:100%; height:100%; display: none;">
-		            	<img class="background" src=" {% static "frontend/resources/2.jpg" %} " alt="" style="width:100%; height:100%; display: none;">
-		            </div>
-		            <div class="carousel-container">
-		              <div class="carousel-content">
-		                <img src=" {% static "frontend/resources/logo.png" %} " class="animated fadeInDown logo"><br>
-							{{ form }}
-							<button class="searchBtn btn btn-outline-secondary" style="font-size: larger" id="searchbtn">Search</button>
-		              </div>
-		            </div>
-		          </div>
-
-		        </div>
-		        </a>
-
-		      </div>
-
+		<!-- Modal -->
+		<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+	    		<div class="spinner-border text-success"></div>
 		    </div>
-		  </section>
+		  </div>
+		</div>
 
 
-		<!-- =============================-->
-		<!-- Recipies-->
-		<!-- =============================-->
-		<section class="recipesSection">
-			<h2>Recipes</h2>
+	  <!-- intro area -->
+	  <section id="intro">
+	    <div class="intro-container">
 
-			<table class="resultsTable">
-			</table>
-		</section>
+	        <div class="carousel-inner" role="listbox">
+
+	          <div class="item active">
+	            <div class="carousel-background">
+	            	<img class="background" src=" {% static "frontend/resources/1.jpg" %} " alt="" style="width:100%; height:100%; display: none;">
+	            	<img class="background" src=" {% static "frontend/resources/2.jpg" %} " alt="" style="width:100%; height:100%; display: none;">
+	            </div>
+	            <div class="carousel-container">
+	              <div class="carousel-content">
+	                <img src=" {% static "frontend/resources/logo.png" %} " class="animated fadeInDown logo"><br>
+									{{ form }}
+									<button class="searchBtn btn btn-outline-secondary" style="font-size: larger" id="searchbtn">Search</button>
+	              </div>
+	            </div>
+	          </div>
+
+	        </div>
+	        </a>
+
+	      </div>
+
+	    </div>
+	  </section>
+
+
+	<!-- =============================-->
+	<!-- Recipies-->
+	<!-- =============================-->
+	<section class="recipesSection">
+		<h2 class="left">Recipes</h2>
+
+		<table class="resultsTable">
+		</table>
+
+		<div class="ad"></div>
+	</section>
 	</body>
 </html>

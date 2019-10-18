@@ -289,45 +289,51 @@ Intro
 }
 
 .recipesSection {
-  margin-top: 50px;
+  margin-top: 100px;
   display: none;
 }
 
 .resultsTable {
-  margin-left: 20%;
   margin-bottom: 100px;
   margin-top: 50px;
-
   width: 60%;
-  border-collapse: collapse;
+  display: inline-table;
 }
 
 .resultsTable td{
-  padding:7px; border:black 1px solid;
+  padding:7px;
   border: none;
 }
 /* provide some minimal visual accomodation for IE8 and below */
 .resultsTable tr{
-  background: white;
-  border: 1px solid transparent;
+  background: #ebfaeb;
   cursor: pointer;
 }
 
-.resultsTable tr:hover {
-  border: 1px solid black;
+.resultsTable h2{
+  font-size: 25px;
 }
 
-/*  Define the background color for all the ODD background rows  */
-.resultsTable tr:nth-child(odd){
-  background: rgb(162,162,162);
+table {
+  border-collapse:separate; 
+  border-spacing:5px;
 }
-/*  Define the background color for all the EVEN background rows  */
-.resultsTable tr:nth-child(even){
-  background: lightgrey;
+
+tbody tr:nth-child(even){
+  background-color: #e6f5ff;
 }
+
+.ad {
+  width: 20%;
+  height: 500px;
+  margin-right: 100px;
+  float: right;
+  border: 2px solid black;
+}
+
 
 .thumbnail {
-  height: 100px;
+  height: 200px;
   margin-bottom: 0px;
 }
 
@@ -351,6 +357,11 @@ Intro
   height: 350px;
   margin-bottom: 25px;
   user-select: none;
+}
+
+.left {
+  text-align: left;
+  margin-left: 100px;
 }
 
 .profile {
@@ -386,6 +397,27 @@ Intro
 
 .imgColumn {
   width: 100px;
+}
+
+.result_title {
+  position: absolute;
+  top: 0px;
+  font-size: 28px;
+}
+
+.relative {
+  position: relative;
+}
+
+li {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 tags {

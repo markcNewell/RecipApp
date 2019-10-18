@@ -7,15 +7,23 @@ window.onload = function() {
 	checkWindowSize();
 
 	$("#searchbtn").click(() => {
+
+		$('#modal').modal('show');
+
 		var tags = $(document).find("tag");
 		var values = [];
 
-		tags.each(function(index, element) {
+		if (tags.length > 0) {
+			tags.each(function(index, element) {
 			var el = $(element).find("span");
-			values.push($(el[0]).html());
-		});
+				values.push($(el[0]).html());
+			});
 
-		makeAPIRequest(values);
+			makeAPIRequest(values);
+		}
+		else {
+			$('#modal').modal('hide');
+		}
 	});
 }
 
@@ -43,7 +51,7 @@ function checkWindowSize() {
 
 
 function makeAPIRequest(ingredientsList) {
-	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=1&ranking=1&ingredients=";
+	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=2&ranking=1&ingredients=";
 
 	location += ingredientsList[0]; //add the first element
 	for (var i = 1; i < ingredientsList.length; i++) {
@@ -54,7 +62,7 @@ function makeAPIRequest(ingredientsList) {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			displayResults(JSON.parse(this.responseText));
+			displayResults(JSON.parse(this.responseText), ingredientsList);
 		}
 	};
 	xhttp.open("GET", location, true);
@@ -68,12 +76,12 @@ function makeAPIRequest(ingredientsList) {
 
 
 
-function makeRecipeRequest(obj, id) {
+function makeRecipeRequest(obj, id, values) {
 	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + id + "/information";
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			createRow(obj,JSON.parse(this.responseText));
+			createRow(obj,JSON.parse(this.responseText), values);
 		}
 	};
 	xhttp.open("GET", location, true);
@@ -87,61 +95,88 @@ function makeRecipeRequest(obj, id) {
 
 
 
-function displayResults(obj) {
+function displayResults(obj, values) {
 
-	var list = document.getElementsByClassName("resultsTable")[0];
+	var list = $($(".resultsTable")[0]);
 
 	/*Inefficient but fine for now*/
-	list.innerHTML = "";
+	list.empty();
 
 	for (var i = 0; i < obj.length; i++) {
 
 		/*Create an entry into the table for each recipie*/
-		createResult(obj[i]);
+		makeRecipeRequest(obj[i], obj[i]["id"], values);
 
 	}
 
 	displayRecipes();
 
 	autoScroll();
+
+	$('#modal').modal('hide');
 }
 
 
-function createResult(obj) {
 
-	makeRecipeRequest(obj, obj["id"]);
-	//Should be used for real implementation
-	//createRow(obj, null);
+function createRow(obj, details, values) {
+	var list = $($(".resultsTable")[0]);
 
-}
+	var row = $("<tr></tr>");
+	var column1 = $("<td></td>");
+	var column2 = $("<td></td>");
 
-function createRow(obj, details) {
-	var list = document.getElementsByClassName("resultsTable")[0];
+	var thumbnail = $("<img>");
+	thumbnail.attr("src", obj["image"]);
 
-	var row = document.createElement("tr");
-	var column1 = document.createElement("td");
-	var column2 = document.createElement("td");
-	var column3 = document.createElement("td");
+	var title = $("<h2></h2>");
+	title.html(obj["title"]);
 
-	var thumbnail = document.createElement("img");
-
-	thumbnail.src = obj["image"];
+	
 
 	var sourceURL = details["sourceUrl"];
+	var ingredients = details["extendedIngredients"];
 
-	row.onclick = function() {
+	row.click(() => {
 		location = sourceURL;
-	};
+	});
 
-	column1.classList.add("imgColumn");
-	thumbnail.classList.add("thumbnail");
-	column2.innerHTML = obj["title"];
 
-	column1.appendChild(thumbnail);
+	column1.addClass("imgColumn");
+	thumbnail.addClass("thumbnail");
+	title.addClass("result_title");
+	column2.addClass("relative");
+	
 
-	row.appendChild(column1);
-	row.appendChild(column2);
-	list.appendChild(row);
+	column1.append(thumbnail);
+	column2.append(title);
+
+	var ingredientsList = $("<ul class='list'></ul>");
+
+	for (var i = 0; i < ingredients.length; i++) {
+		var span = $("<span class='label label-warning'>" + ingredients[i]['name'] + "</span>");
+		var item = $("<li></li>");
+
+		for (var j = 0; j < values.length; j++) {
+			//remove whitespace
+			var name = values[j].replace(/\s/g,'');
+
+			if (ingredients[i]['name'].includes(name)) {
+				span.removeClass("label-warning");
+				span.addClass("label-success");
+			}
+		}
+		
+		item.append(span);
+		ingredientsList.append(item);
+	}
+
+	column2.append(ingredientsList);
+
+	row.append(column1);
+	row.append(column2);
+	list.append(row);
+
+	console.log(details);
 }
 
 
