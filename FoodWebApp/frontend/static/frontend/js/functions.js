@@ -1,3 +1,5 @@
+var GLOBAL_TAGS = 
+
 window.onresize = function() {
 	checkWindowSize();
 }
@@ -19,11 +21,27 @@ window.onload = function() {
 				values.push($(el[0]).html());
 			});
 
+			GLOBAL_TAGS = values;
+
 			makeAPIRequest(values);
 		}
 		else {
 			$('#modal').modal('hide');
 		}
+	});
+
+	$("#filterbtn").click(() => {
+
+		var filterInputs = $("#filters").find("input");
+		var filters = ""
+
+		filterInputs.each(function(index, element) {
+			var name = $(element).attr("name");
+			var value = $(element).val();
+		});
+
+		makeAPIRequest(GLOBAL_TAGS, filters);
+
 	});
 }
 
@@ -37,10 +55,12 @@ function checkWindowSize() {
 	if (window.innerWidth < 600) {
 		$($(".background")[0]).css("display", "none");
 		$($(".background")[1]).css("display", "block");
+		$($(".ad")[0]).css("display", "none");
 	}
 	else {
 		$($(".background")[1]).css("display", "none");
 		$($(".background")[0]).css("display", "block");
+		$($(".ad")[0]).css("display", "block");
 	}
 	
 }
@@ -50,14 +70,21 @@ function checkWindowSize() {
 
 
 
-function makeAPIRequest(ingredientsList) {
+function makeAPIRequest(ingredientsList, filters=null) {
 	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=2&ranking=1&ingredients=";
+	//var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=2&offset=1&search=";
 
 	location += ingredientsList[0]; //add the first element
 	for (var i = 1; i < ingredientsList.length; i++) {
 		var ingredient = ingredientsList[i].replace(' ', '+');
 		location += "%2C+" + ingredient;
 	}
+
+	if (filters != null) {
+		location += filters;
+		alert(location);
+	}
+
 
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
@@ -101,6 +128,8 @@ function displayResults(obj, values) {
 
 	/*Inefficient but fine for now*/
 	list.empty();
+
+	//obj = obj["results"];
 
 	for (var i = 0; i < obj.length; i++) {
 
