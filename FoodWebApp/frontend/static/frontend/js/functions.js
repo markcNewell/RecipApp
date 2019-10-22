@@ -32,12 +32,21 @@ window.onload = function() {
 
 	$("#filterbtn").click(() => {
 
-		var filterInputs = $("#filters").find("input");
+		var filterInputs = $("#filters").find("input:checked");
 		var filters = ""
 
 		filterInputs.each(function(index, element) {
 			var name = $(element).attr("name");
-			var value = $(element).val();
+			var value = $(element).attr("checked");
+
+
+			if (name == "ranking") {
+				value = "2";
+			}
+
+			filters += name + "=" + value + "&";
+			
+			
 		});
 
 		makeAPIRequest(GLOBAL_TAGS, filters);
@@ -60,7 +69,7 @@ function checkWindowSize() {
 	else {
 		$($(".background")[1]).css("display", "none");
 		$($(".background")[0]).css("display", "block");
-		$($(".ad")[0]).css("display", "block");
+		$($(".ad")[0]).css("display", "none");
 	}
 	
 }
@@ -71,18 +80,20 @@ function checkWindowSize() {
 
 
 function makeAPIRequest(ingredientsList, filters=null) {
-	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=2&ranking=1&ingredients=";
+	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=2&ingredients=";
 	//var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=2&offset=1&search=";
 
-	location += ingredientsList[0]; //add the first element
+	location += ingredientsList[0].replace(/\s/g,''); //add the first element
 	for (var i = 1; i < ingredientsList.length; i++) {
-		var ingredient = ingredientsList[i].replace(' ', '+');
+		var ingredient = ingredientsList[i].replace(/\s/g,'');
 		location += "%2C+" + ingredient;
 	}
 
 	if (filters != null) {
-		location += filters;
-		alert(location);
+		location += "&" + filters;
+	}
+	else {
+		location += "&ranking=1"
 	}
 
 
@@ -139,6 +150,7 @@ function displayResults(obj, values) {
 	}
 
 	displayRecipes();
+	displayLoadMore();
 
 	autoScroll();
 
@@ -206,6 +218,11 @@ function createRow(obj, details, values) {
 	list.append(row);
 
 	console.log(details);
+}
+
+
+function displayLoadMore() {
+	$("#loadmorebtn").css("display","block");
 }
 
 

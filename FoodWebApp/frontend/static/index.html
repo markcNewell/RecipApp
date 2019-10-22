@@ -74,41 +74,41 @@
 			<fieldset>
 				<legend>Intolerances</legend>
 				<div class="form-group form-check">
-					<input type="checkbox" class="form-check-input" id="intolerance_gluten" name="intolerances">
+					<input type="checkbox" class="form-check-input" id="intolerance_gluten" name="intolerances" disabled>
 					<label class="form-check-label" for="intolerance_gluten">Gluten</label>
 				</div>
 				<div class="form-group form-check">
-					<input type="checkbox" class="form-check-input" id="intolerance_lactose" name="intolerances">
+					<input type="checkbox" class="form-check-input" id="intolerance_lactose" name="intolerances" disabled>
 					<label class="form-check-label" for="intolerance_lactose">Lactose</label>
 				</div>
 				<div class="form-group form-check">
-					<input type="checkbox" class="form-check-input" id="intolerance_nuts" name="intolerances">
+					<input type="checkbox" class="form-check-input" id="intolerance_nuts" name="intolerances" disabled>
 					<label class="form-check-label" for="intolerance_nuts">Nuts</label>
 				</div>
 			</fieldset>
 			<fieldset>
 				<legend>Cuisine</legend>
 				<div class="form-group form-check">
-					<input type="checkbox" class="form-check-input" id="cuisine_indian" name="cuisine">
-					<label class="form-check-label" for="cuisine_indian">Indian</label>
+					<input type="checkbox" class="form-check-input" id="cuisine_indian" name="cuisine" disabled>
+					<label class="form-check-label" for="cuisine_indian">Indian</label> 
 				</div>
 				<div class="form-group form-check">
-					<input type="checkbox" class="form-check-input" id="cuisine_chinese" name="cuisine">
+					<input type="checkbox" class="form-check-input" id="cuisine_chinese" name="cuisine" disabled>
 					<label class="form-check-label" for="cuisine_chinese">Chinese</label>
 				</div>
 			</fieldset>
 			<fieldset>
 				<legend>Diet</legend>
 				<div class="form-group form-check">
-					<input type="checkbox" class="form-check-input" id="diet_ketogenic" name="diet">
+					<input type="checkbox" class="form-check-input" id="diet_ketogenic" name="diet" disabled>
 					<label class="form-check-label" for="diet_ketogenic">Ketogenic</label>
 				</div>
 				<div class="form-group form-check">
-					<input type="checkbox" class="form-check-input" id="diet_vegetarian" name="diet">
+					<input type="checkbox" class="form-check-input" id="diet_vegetarian" name="diet" disabled>
 					<label class="form-check-label" for="diet_vegetarian">Vegetarian</label>
 				</div>
 				<div class="form-group form-check">
-					<input type="checkbox" class="form-check-input" id="diet_vegan" name="diet">
+					<input type="checkbox" class="form-check-input" id="diet_vegan" name="diet" disabled>
 					<label class="form-check-label" for="diet_vegan">Vegan</label>
 				</div>
 				<div class="form-group form-check">
@@ -116,12 +116,24 @@
 					<label class="form-check-label" for="diet_pescetarian">Pescetarian</label>
 				</div>
 			</fieldset>
+			<fieldset>
+				<legend>Other</legend>
+				<div class="form-group form-check">
+					<input type="checkbox" class="form-check-input" id="other_including" name="ranking">
+					<label class="form-check-label" for="other_including">Force Selection</label>
+				</div>
+			</fieldset>
 				
 			<button type="submit" class="btn btn-light" id="filterbtn">Filter</button>
 		</div>
 
 		<table class="resultsTable">
+
 		</table>
+
+		<div class="loadmore" id="loadmorebtn">
+			<h3>Load More</h3>
+		</div>
 
 		<div class="ad"></div>
 	</section>

@@ -294,7 +294,6 @@ Intro
 
 .resultsTable {
   margin-top: 50px;
-  margin-bottom: 100px;
   width: 60%;
   display: inline-table;
 }
@@ -319,7 +318,13 @@ table {
   border-spacing:2px;
 }
 
+/*
 tbody tr:nth-child(even){
+  background-color: #e6f5ff;
+}
+*/
+
+tr:hover{
   background-color: #e6f5ff;
 }
 
@@ -329,7 +334,7 @@ tbody tr:nth-child(even){
   margin-right: 100px;
   margin-top: 50px;
   float: right;
-  border: 2px solid black;
+  /*border: 2px solid black;*/
 }
 
 
@@ -452,4 +457,22 @@ fieldset .form-group {
 
 legend {
   border-bottom: none;
+}
+
+#filterbtn {
+  margin-bottom: 15px;
+}
+
+.loadmore {
+  display: block;
+  width: 60%;
+  margin: auto;
+  margin-bottom: 100px;
+  padding: 10px 0px 10px 0px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h3 {
+  color: #00a1ff !important;
 }
