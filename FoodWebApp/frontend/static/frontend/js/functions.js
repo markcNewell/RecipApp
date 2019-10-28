@@ -1,4 +1,7 @@
-var GLOBAL_TAGS = 
+var GLOBAL_TAGS = []
+var GLOBAL_OFFSET = 0
+var GLOBAL_PAGESIZE = 2
+var GLOBAL_OBJECTS = ""
 
 window.onresize = function() {
 	checkWindowSize();
@@ -9,6 +12,8 @@ window.onload = function() {
 	checkWindowSize();
 
 	$("#searchbtn").click(() => {
+
+		GLOBAL_OFFSET = 0;
 
 		$('#modal').modal('show');
 
@@ -32,6 +37,8 @@ window.onload = function() {
 
 	$("#filterbtn").click(() => {
 
+		GLOBAL_OFFSET = 0;
+
 		var filterInputs = $("#filters").find("input:checked");
 		var filters = ""
 
@@ -51,6 +58,12 @@ window.onload = function() {
 
 		makeAPIRequest(GLOBAL_TAGS, filters);
 
+	});
+
+
+	$("#loadmorebtn").click(() => {
+		GLOBAL_OFFSET += GLOBAL_PAGESIZE;
+		displayResults(JSON.parse(GLOBAL_OBJECTS), GLOBAL_TAGS);
 	});
 }
 
@@ -80,9 +93,8 @@ function checkWindowSize() {
 
 
 function makeAPIRequest(ingredientsList, filters=null) {
-	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=2&ingredients=";
-	//var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=2&offset=1&search=";
-
+	var location = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=10&ingredients=";
+	
 	location += ingredientsList[0].replace(/\s/g,''); //add the first element
 	for (var i = 1; i < ingredientsList.length; i++) {
 		var ingredient = ingredientsList[i].replace(/\s/g,'');
@@ -100,6 +112,7 @@ function makeAPIRequest(ingredientsList, filters=null) {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
+			GLOBAL_OBJECTS = this.responseText;
 			displayResults(JSON.parse(this.responseText), ingredientsList);
 		}
 	};
@@ -135,6 +148,9 @@ function makeRecipeRequest(obj, id, values) {
 
 function displayResults(obj, values) {
 
+	$('#modal').modal('show');
+	$($(".recipesSection")[0]).css("display","none");
+
 	var list = $($(".resultsTable")[0]);
 
 	/*Inefficient but fine for now*/
@@ -142,16 +158,17 @@ function displayResults(obj, values) {
 
 	//obj = obj["results"];
 
-	for (var i = 0; i < obj.length; i++) {
+	var newPage = (GLOBAL_OFFSET + GLOBAL_PAGESIZE);
 
-		/*Create an entry into the table for each recipie*/
-		makeRecipeRequest(obj[i], obj[i]["id"], values);
+	if (newPage < obj.length) {
+		for (var i = 0; i < newPage; i++) {
+			/*Create an entry into the table for each recipie*/
+			makeRecipeRequest(obj[i], obj[i]["id"], values);
 
+		}
 	}
 
 	displayRecipes();
-	displayLoadMore();
-
 	autoScroll();
 
 	$('#modal').modal('hide');
@@ -218,11 +235,6 @@ function createRow(obj, details, values) {
 	list.append(row);
 
 	console.log(details);
-}
-
-
-function displayLoadMore() {
-	$("#loadmorebtn").css("display","block");
 }
 
 
