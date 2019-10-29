@@ -16,6 +16,7 @@ window.onload = function() {
 		GLOBAL_OFFSET = 0;
 
 		$('#modal').modal('show');
+		$($('.resultsTable')[0]).empty();
 
 		var tags = $(document).find("tag");
 		var values = [];
@@ -151,17 +152,12 @@ function displayResults(obj, values) {
 	$('#modal').modal('show');
 	$($(".recipesSection")[0]).css("display","none");
 
-	var list = $($(".resultsTable")[0]);
-
-	/*Inefficient but fine for now*/
-	list.empty();
-
 	//obj = obj["results"];
 
 	var newPage = (GLOBAL_OFFSET + GLOBAL_PAGESIZE);
 
 	if (newPage < obj.length) {
-		for (var i = 0; i < newPage; i++) {
+		for (var i = GLOBAL_OFFSET; i < newPage; i++) {
 			/*Create an entry into the table for each recipie*/
 			makeRecipeRequest(obj[i], obj[i]["id"], values);
 
@@ -169,7 +165,10 @@ function displayResults(obj, values) {
 	}
 
 	displayRecipes();
-	autoScroll();
+
+	if (GLOBAL_OFFSET == 0) {
+		autoScroll();
+	}
 
 	$('#modal').modal('hide');
 }
@@ -249,6 +248,8 @@ function displayRecipes() {
 }
 
 function autoScroll() {
-	var windowHeight = window.innerHeight;
-	window.scrollTo(0,windowHeight);
+    $('html, body').animate({
+        scrollTop: $(document).height()
+    }, 'slow');
+    return false;
 }
