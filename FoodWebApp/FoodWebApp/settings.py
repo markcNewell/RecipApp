@@ -25,7 +25,7 @@ SECRET_KEY = '*pkr*l5fn09bk3d@e(@f65$)yuzb1fhiy=lts4z%#i_0(tcspf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["mn367.pythonanywhere.com"]
 
 
 # Application definition
@@ -56,9 +56,7 @@ ROOT_URLCONF = 'FoodWebApp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            '.'
-        ],
+        'DIRS': [os.path.join(BASE_DIR, '')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,6 +121,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = '/home/mn367/RecipApp/FoodWebApp/static/'
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend/static'),
+    "/home/mn367/RecipApp/FoodWebApp/frontend/static",
 ]

@@ -1,0 +1,478 @@
+/*
+  Theme Name: Alstar
+  Theme URL: https://bootstrapmade.com/alstar-free-parallax-bootstrap-template/
+  Author: BootstrapMade.com
+  Author URL: https://bootstrapmade.com
+*/
+
+/* ================================
+Imports
+================================= */
+@import url('font-awesome.min.css');
+@import url('simpletextrotator.css');
+@import url('overwrite.css');
+@import url('animate.css');
+
+/* ================================
+General
+================================= */
+
+body{
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	line-height: 1.6em;
+}
+
+h1 {
+	font-size: 36px;
+}
+h2 {
+	font-size: 32px;
+}
+h3 {
+	font-size: 28px;
+}
+h4 {
+	font-size: 24px;
+}
+h5 {
+	font-size: 20px;
+}
+h6 {
+	font-size: 18px;
+}
+
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
+	color: #3a3a3a;
+	font-weight: 700;
+	margin-bottom: 20px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+tags {
+  background: white;
+  display: inline-block !important;
+}
+
+
+.lead{
+	font-weight: 400;
+}
+
+button {
+	display: inline-block;
+	margin-bottom: 0;
+	margin-bottom: 10px;
+	padding: 6px 12px;
+	border: 1px solid transparent;
+	vertical-align: middle;
+	text-align: center;
+	white-space: nowrap;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 1.428571429;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.btn-theme,.btn-theme:hover,.btn-theme:focus{
+	color: #fff;
+}
+.btn-theme:hover{
+	background: transparent !important;
+	border-color: #999;
+	color: #999;
+}
+
+
+/* ================================
+margin, padding
+================================= */
+.mar-top0 {
+	margin-top: 0;
+}
+.mar-top10 {
+	margin-top: 10px;
+}
+.mar-top20 {
+	margin-top: 20px;
+}
+.mar-top30 {
+	margin-top: 30px;
+}
+.mar-top40 {
+	margin-top: 40px;
+}
+
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  display: none;
+  padding: 6px 12px 9px 12px;
+  font-size: 16px;
+  border-radius: 2px;
+  right: 15px;
+  bottom: 15px;
+  transition: background 0.5s;
+  z-index:1000;
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 15px;
+  }
+}
+
+.back-to-top:focus {
+  outline: none;
+}
+
+/* ================================
+Home sections
+================================= */
+
+.home-section {
+	width: 100%;
+	padding: 150px 0px 150px 0px;
+}
+
+/* --- heading --- */
+.section-heading {
+	margin-bottom: 50px;
+}
+
+.section-heading h2 {
+	font-size: 38px;
+	text-transform: uppercase;
+}
+
+.section-heading .heading-line {
+	margin:0 auto;
+	display: block;
+	height: 1px;
+	width: 80px;
+	background: #333;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+/* ================================
+Intro
+================================= */
+
+#intro {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#intro .item {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#intro .item::before {
+  content: '';
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+#intro .carousel-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#intro .carousel-content {
+  text-align: center;
+}
+
+#intro h2 {
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+#intro p {
+  width: 70%;
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+  margin: 0 auto 30px auto;
+  color: #fff;
+}
+
+@media (max-width: 768px ) {
+  #intro h2 {
+    font-size: 36px;
+  }
+}
+
+
+#intro .btn-get-started {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 3px;
+  transition: 0.5s;
+  line-height: 1;
+  margin: 10px;
+  color: #fff;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  border: 2px solid #;
+}
+
+#intro .btn-get-started:hover {
+  background: #28933E;
+  color: #fff;
+  text-decoration: none;
+}
+
+
+.tagify__dropdown.extra-properties .tagify__dropdown__item > img{
+    display: inline-block;
+    vertical-align: middle;
+    height: 20px;
+    transform: scale(.75);
+    margin-right: 5px;
+    border-radius: 2px;
+    transition: .12s ease-out;
+}
+
+.tagify__dropdown.extra-properties .tagify__dropdown__item:hover > img{
+    transform: none;
+    margin-right: 12px;
+}
+
+.tagify.countries .tagify__input{ min-width:175px; }
+
+.tagify.countries tag{ white-space:nowrap; }
+.tagify.countries tag img{
+    display: inline-block;
+    vertical-align: middle;
+    height: 16px;
+    margin-right: 3px;
+    border-radius: 2px;
+}
+
+.recipesSection {
+  display: none;
+}
+
+.resultsTable {
+  margin-top: 50px;
+  width: 60%;
+  display: inline-table;
+}
+
+.resultsTable td{
+  padding:7px;
+  border: none;
+}
+/* provide some minimal visual accomodation for IE8 and below */
+.resultsTable tr{
+  background: #ebfaeb;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.resultsTable h2{
+  font-size: 25px;
+}
+
+table {
+  border-collapse:separate; 
+  border-spacing:2px;
+}
+
+/*
+tbody tr:nth-child(even){
+  background-color: #e6f5ff;
+}
+*/
+
+tr:hover{
+  background-color: #e6f5ff;
+}
+
+.ad {
+  width: 20%;
+  height: 500px;
+  margin-right: 100px;
+  margin-top: 50px;
+  float: right;
+  /*border: 2px solid black;*/
+}
+
+
+.thumbnail {
+  height: 200px;
+  margin-bottom: 0px;
+}
+
+.ingredientsInput {
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  width: 400px;
+
+  border: none;
+}
+
+.ingredientsInput:focus{
+	outline:none;
+	border:none;
+}
+
+.logo {
+  width: 350px;
+  height: 350px;
+  margin-bottom: 25px;
+  user-select: none;
+}
+
+.left {
+  text-align: left;
+  margin-left: 100px;
+}
+
+.profile {
+  width: 50px;
+  height:50px;
+	position: fixed;
+	left: 30px;
+	top: 30px;
+	cursor: pointer;
+}
+
+.searchBtn {
+  position: relative;
+
+	color: grey;
+  top: -18px;
+  height: 44px;
+
+  background: white;
+	font-weight: bold;
+
+  border: 1px solid white;
+}
+
+.searchBtn:hover {
+  border: 1px solid white;
+}
+
+.searchBtn:focus{
+	outline:none;
+	border:none;
+}
+
+.imgColumn {
+  width: 100px;
+}
+
+.result_title {
+  position: absolute;
+  top: 0px;
+  font-size: 28px;
+}
+
+.relative {
+  position: relative;
+}
+
+li {
+  margin-left: 10px;
+  margin-top: 5px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19)
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+tags {
+  border-radius: 5px 0px 0px 5px;
+}
+
+#searchbtn {
+  border-radius: 0px 5px 5px 0px;
+}
+
+.filters {
+  width: 100%;
+  padding-top: 20px;
+  background-color: lightgrey;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+fieldset {
+  display: inline-block;
+  margin-right: 5%;
+}
+
+fieldset .form-group {
+  display: inline-block;
+}
+
+.form-group input[type="checkbox"] {
+  margin-left: 10px;
+}
+
+legend {
+  border-bottom: none;
+}
+
+#filterbtn {
+  margin-bottom: 15px;
+}
+
+.loadmore {
+  display: block;
+  width: 60%;
+  margin: auto;
+  margin-bottom: 100px;
+  padding: 10px 0px 10px 0px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h3 {
+  color: #00a1ff !important;
+}
